@@ -4,7 +4,7 @@
 
 Proxmox CE
 
-Hetzner
+Hetzner Cloud
 
 ## Software
 
