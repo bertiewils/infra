@@ -66,6 +66,10 @@ resource "hcloud_server" "docker-htz" {
   image       = "debian-10"
   server_type = "cx11"
   location    = "nbg1"
+  firewall_ids = [
+    "69131",
+    "69129"
+  ]
   backups = false
   ssh_keys = [
     "bert@Berties-MBP.home",
