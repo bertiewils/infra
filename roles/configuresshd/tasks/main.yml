@@ -1,7 +1,7 @@
 ---
 
 - name: Remove root SSH access
-  lineinfile:
+  ansible.builtin.lineinfile:
     dest: /etc/ssh/sshd_config
     regexp: "^PermitRootLogin"
     line: "PermitRootLogin no"
@@ -9,7 +9,7 @@
     notify: restart sshd
 
 - name: Remove password SSH access
-  lineinfile:
+  ansible.builtin.lineinfile:
     dest: /etc/ssh/sshd_config
     regexp: "^PasswordAuthentication"
     line: "PasswordAuthentication no"
