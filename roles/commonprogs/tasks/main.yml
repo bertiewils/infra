@@ -1,0 +1,32 @@
+---
+
+- name: Install useful programs
+  apt:
+    update_cache: true
+    cache_valid_time: 3600
+    name:
+      - sudo
+      - figlet
+    state: present
+
+- name: Install VM tools
+  apt:
+    update_cache: true
+    cache_valid_time: 3600
+    name:
+      - haveged
+      - qemu-guest-agent
+    state: present
+  when: ansible_virtualization_role = 'guest'
+
+- name: Update all packages.
+  apt:
+    upgrade: safe
+
+- name: Clean up useless packages
+  apt:
+    autoclean: true
+
+- name: Clean up unused dependencies
+  apt:
+    autoremove: true

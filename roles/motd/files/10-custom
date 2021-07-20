@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# Print hostname
+if command -v figlet > /dev/null 2>&1; then
+        echo "$HOSTNAME" | figlet
+    else
+        echo
+        echo "Hostname: $HOSTNAME"
+        echo
+fi
+
+# Print system info
+# shellcheck disable=SC1091
+if [ -f /etc/os-release ]; then
+    source /etc/os-release
+    echo "Distro: $PRETTY_NAME"
+    echo "Kernel: $(uname -sr)"
+fi
+
+# Print uptime
+if uptime -p > /dev/null 2>&1; then
+    echo "Uptime: $(uptime -p)"
+fi
+
+# Print mem usage
+if command -v free > /dev/null 2>&1; then
+        echo
+        free -m | grep -i -B1 Mem
+        echo
+fi
+
+# Print updates
+if command -v apt-get > /dev/null 2>&1; then
+        echo "Updates available: $(apt list --upgradable 2>/dev/null | grep -c upgradable)"
+fi
+
+echo

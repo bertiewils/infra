@@ -1,0 +1,34 @@
+---
+
+- name: Check if custom MOTD has been added
+  ansible.builtin.stat:
+    path: /etc/update-motd.d/10-custom
+  register: custom_motd
+
+- name: Get current file list
+  ansible.builtin.find:
+    path: /etc/update-motd.d/
+    file_type: any
+    hidden: true
+  register: directory_content_result
+  when: not custom_motd.stat.exists
+
+- name: Remove existing MOTD
+  become: true
+  ansible.builtin.find:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ directory_content_result.files }}"
+  loop_control:
+    label: "{{ item.path }}"
+  when: not custom_motd.stat.exists
+
+- name: Copy over custom MOTD
+  become: true
+  ansible.builtin.copy:
+    src: 10-custom
+    dest: /etc/update-motd.d/
+    owner: root
+    group: root
+    mode: '0755'
+  when: not custom_motd.stat.exists
