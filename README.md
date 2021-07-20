@@ -1,14 +1,16 @@
 # infra
 
-## Hardware
+## Overview
+
+### Hardware
 
 Proxmox CE
 
 Hetzner Cloud
 
-## Software
+### Software
 
-## DNS
+DNS:
 
 Cloudflare - https://github.com/StackExchange/dnscontrol
 
@@ -20,8 +22,16 @@ Local DNS - Pihole
 touch terraform/terraform.tfvars
 ```
 
-## Bootstrap
+## Ansible
 
+Required connections:
+
+```bash
+ansible-galaxy collection install ansible.posix # authorized_key
 ```
+
+### Bootstrap
+
+```bash
 ansible-playbook bootstrap.yml -k -K --extra-vars "user=root"
 ```
