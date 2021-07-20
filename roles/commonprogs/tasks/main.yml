@@ -5,8 +5,9 @@
     update_cache: true
     cache_valid_time: 3600
     name:
-      - sudo
       - figlet
+      - nano
+      - sudo
     state: present
 
 - name: Install VM tools
@@ -19,7 +20,7 @@
     state: present
   when: ansible_virtualization_role = 'guest'
 
-- name: Update all packages.
+- name: Perform an apt upgrade
   apt:
     upgrade: safe
 

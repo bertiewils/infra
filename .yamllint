@@ -6,9 +6,6 @@ rules:
   document-start:
     ignore: |
       vault.yml
-  brackets:
-    ignore: |
-      .github/workflows/tf_sec_scan.yml
   truthy:
     ignore: |
       .github/workflows/tf_sec_scan.yml
