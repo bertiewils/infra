@@ -4,8 +4,14 @@ name: Generate terraform docs
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - "terraform/**.tf"
+      - .github/workflows/terraform-docs.yml
+  pull_request:
+    paths:
+      - "terraform/**.tf"
+      - .github/workflows/terraform-docs.yml
+
 jobs:
   docs:
     runs-on: ubuntu-latest
@@ -18,5 +24,6 @@ jobs:
         uses: terraform-docs/gh-actions@v0.8.0
         with:
           working-dir: terraform/
+          output-file: README.md
           config-file: .terraform-docs.yml
           git-push: "true"

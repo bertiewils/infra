@@ -2,7 +2,15 @@
 
 name: Terraform security scan
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - "terraform/**.tf"
+      - .github/workflows/tf_sec_scan.yml
+  pull_request:
+    paths:
+      - "terraform/**.tf"
+      - .github/workflows/tf_sec_scan.yml
 
 jobs:
   tfsec:
