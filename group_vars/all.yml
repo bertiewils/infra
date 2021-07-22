@@ -1,5 +1,4 @@
 ---
-
 # generic settings
 my_username: bert
 my_groupname: "{{ my_username }}"

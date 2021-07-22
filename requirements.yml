@@ -1,4 +1,5 @@
 ---
+# Ansible requirements
 
 collections:
   - name: ansible.posix  # for authorized_key

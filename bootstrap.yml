@@ -1,5 +1,4 @@
 ---
-
 - name: Bootstrap server for future ansible runs
   hosts: ungrouped
   remote_user: "{{ user }}"

@@ -1,5 +1,4 @@
 ---
-
 - name: Check if custom MOTD has been added
   ansible.builtin.stat:
     path: /etc/update-motd.d/10-custom

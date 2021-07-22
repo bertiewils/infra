@@ -1,5 +1,4 @@
 ---
-
 name: Terraform security scan
 
 on:

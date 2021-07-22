@@ -1,5 +1,4 @@
 ---
-
 name: Generate terraform docs
 
 on:

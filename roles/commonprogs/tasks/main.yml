@@ -1,5 +1,4 @@
 ---
-
 - name: Install useful programs
   apt:
     update_cache: true
