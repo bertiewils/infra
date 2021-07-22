@@ -29,10 +29,10 @@
 |------|-------------|---------|:--------:|
 | hcloud\_token | n/a | n/a | yes |
 
-defined in `terraform.tfvars` like so:
+defined in `terraform.tfvars` like so (replacing null):
 
 ```hcl
-hcloud_token = ""
+hcloud_token = null
 
 ```
 
