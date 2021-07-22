@@ -3,7 +3,6 @@
 
 ### Ansible ###
 *.retry
-.ansible_vault
 
 ### Linux ###
 *~
@@ -85,3 +84,6 @@ override.tf.json
 terraform.rc
 
 # End of https://www.toptal.com/developers/gitignore/api/ansible,terraform,linux,macos
+
+.ansible_vault
+tfvar
