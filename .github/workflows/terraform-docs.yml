@@ -20,6 +20,12 @@ jobs:
         with:
           ref: main
 
+      - name: Install tfvar and generate example tfvars file
+        run: |
+          curl -sLO https://github.com/shihanng/tfvar/releases/latest/download/tfvar_linux_amd64.deb
+          dpkg -i tfvar_linux_amd64.deb
+          tfvar terraform/ > terraform/terraform.tfvars.example
+
       - name: Render terraform docs and push changes back to PR
         uses: terraform-docs/gh-actions@v0.8.0
         with:

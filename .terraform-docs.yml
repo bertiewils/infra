@@ -23,7 +23,7 @@ content: |-
 
   {{ .Inputs }}
 
-  defined in `terraform.tfvars` like so:
+  defined in `terraform.tfvars` like so (replacing null):
 
   ```hcl
   {{ include "terraform.tfvars.example" }}
