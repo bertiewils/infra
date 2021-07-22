@@ -1,0 +1,22 @@
+---
+
+name: Generate terraform docs
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+
+      - name: Render terraform docs and push changes back to PR
+        uses: terraform-docs/gh-actions@v0.8.0
+        with:
+          working-dir: terraform/
+          config-file: .terraform-docs.yml
+          git-push: "true"

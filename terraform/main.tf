@@ -73,7 +73,7 @@ resource "hcloud_server" "docker-htz" {
   backups = false
   ssh_keys = [
     "bert@Berties-MBP.home",
-    "bert@shell"
+    "bert@shell",
+    "ansible-key"
   ]
 }
-

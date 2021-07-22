@@ -18,16 +18,15 @@ Local DNS - Pihole
 
 ## Terraform
 
-```
-touch terraform/terraform.tfvars
-```
+See the [terraform/README.md](terraform/README.md) for more information.
+
 
 ## Ansible
 
-Required connections:
+Required collections:
 
 ```bash
-ansible-galaxy collection install ansible.posix # authorized_key
+ansible-galaxy install -r requirements.yml
 ```
 
 ### Bootstrap
