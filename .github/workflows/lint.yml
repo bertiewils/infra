@@ -1,12 +1,12 @@
 ---
 # Runs ansible-lint and yamllint
 
-name: Ansible/yaml lint
+name: Linting
 
 on: [push, pull_request]
 
 jobs:
-  build:
+  ansible-lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,15 +23,20 @@ jobs:
           # targets: |
           #   playbook_1.yml
           #   playbook_2.yml
-          # Left blank to enable auto-detection mode
-          targets: ""
+          targets: "*"
           # [optional]
           # Arguments to override a package and set its version explicitly.
           # Must follow the example syntax.
           # override-deps: |
           #  ansible==2.11
           #  ansible-lint==5.1.2
-          args: "-q"
+          args: "-vv"
+
+  yamllint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
 
       - name: Set up Python
         uses: actions/setup-python@v2
