@@ -1,5 +1,4 @@
 ---
-
 extends: default
 
 rules:
@@ -9,4 +8,7 @@ rules:
   truthy:
     ignore: |
       .github/workflows/tf_sec_scan.yml
+      .github/workflows/terraform-docs.yml
+  line-length:
+    ignore: |
       .github/workflows/terraform-docs.yml
