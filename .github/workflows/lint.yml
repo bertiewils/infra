@@ -30,7 +30,7 @@ jobs:
           # override-deps: |
           #  ansible==2.11
           #  ansible-lint==5.1.2
-          args: "-vv"
+          args: ""
 
   yamllint:
     runs-on: ubuntu-latest

@@ -5,7 +5,7 @@ exclude_paths:
   - terraform/
   - .*
 
-# verbosity: 1
+verbosity: 3
 
 use_default_rules: true
 
