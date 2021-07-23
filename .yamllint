@@ -9,6 +9,7 @@ rules:
     ignore: |
       .github/workflows/tf_sec_scan.yml
       .github/workflows/terraform-docs.yml
+      .github/workflows/lint.yml
   line-length:
     ignore: |
       .github/workflows/terraform-docs.yml
