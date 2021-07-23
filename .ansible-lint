@@ -4,6 +4,8 @@ exclude_paths:
   - .github/
   - terraform/
   - .*
+  - LICENSE
+  - README.md
 
 verbosity: 3
 
