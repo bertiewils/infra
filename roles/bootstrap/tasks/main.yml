@@ -1,0 +1,13 @@
+---
+- include: users.yml
+  become: true
+
+- include: sshd.yml
+  become: true
+  when: ansible_pub_key.failed is not true
+
+- include: programs.yml
+  become: true
+
+- include: motd.yml
+  become: true

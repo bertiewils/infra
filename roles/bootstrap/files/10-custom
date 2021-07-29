@@ -24,14 +24,17 @@ fi
 
 # Print mem usage
 if command -v free > /dev/null 2>&1; then
-        echo
-        free -m | grep -i -B1 Mem
-        echo
+        echo "Memory: $(free | grep Mem | awk '{print int($3/$2 * 100.0)}')% used"
 fi
 
 # Print updates
-if command -v apt-get > /dev/null 2>&1; then
-        echo "Updates available: $(apt list --upgradable 2>/dev/null | grep -c upgradable)"
+# if command -v apt-get > /dev/null 2>&1; then
+#         echo "Updates available: $(apt list --upgradable 2>/dev/null | grep -c upgradable)"
+# fi
+
+# Print updates
+if [ -f /tmp/updates ]; then
+    cat /tmp/updates
 fi
 
 echo

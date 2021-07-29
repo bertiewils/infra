@@ -1,0 +1,45 @@
+---
+- name: Users | Create the "{{ my_username }}" user
+  ansible.builtin.user:
+    name: "{{ my_username }}"
+    state: present
+    append: true
+    groups: sudo
+    shell: /bin/bash
+    system: false
+    createhome: true
+
+- name: Users | Add {{ my_username }}'s public key(s)
+  ansible.posix.authorized_key:
+    user: "{{ my_username }}"
+    state: present
+    key: https://github.com/{{ my_gh_username }}.keys
+    comment: "main-key"
+
+- name: Users | Create the "{{ ansible_username }}" user
+  ansible.builtin.user:
+    name: "{{ ansible_username }}"
+    state: present
+    append: true
+    groups: sudo
+    shell: /bin/bash
+    system: false
+    createhome: true
+
+- name: Users | Add {{ ansible_username }}'s public key
+  ansible.posix.authorized_key:
+    user: "{{ ansible_username }}"
+    state: present
+    key: "{{ lookup('file', 'files/id_rsa.ansible.pub') }}"
+    comment: "ansible-key"
+    exclusive: true
+  register: ansible_pub_key
+
+- name: Users | Give {{ ansible_username }} user passwordless sudo
+  become_method: sudo
+  become_user: root
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers
+    state: present
+    line: '"{{ ansible_username }}"  ALL=(ALL) NOPASSWD: ALL'
+    validate: /usr/sbin/visudo -cf %s

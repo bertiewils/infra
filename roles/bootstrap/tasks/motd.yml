@@ -1,10 +1,10 @@
 ---
-- name: Check if custom MOTD has been added
+- name: MOTD | Check if custom MOTD has been added
   ansible.builtin.stat:
     path: /etc/update-motd.d/10-custom
   register: custom_motd
 
-- name: Get current file list
+- name: MOTD | Get current file list
   ansible.builtin.find:
     path: /etc/update-motd.d/
     file_type: any
@@ -12,9 +12,8 @@
   register: directory_content_result
   when: not custom_motd.stat.exists
 
-- name: Remove existing MOTD
-  become: true
-  ansible.builtin.find:
+- name: MOTD | Remove existing MOTD.d
+  ansible.builtin.file:
     path: "{{ item.path }}"
     state: absent
   with_items: "{{ directory_content_result.files }}"
@@ -22,12 +21,21 @@
     label: "{{ item.path }}"
   when: not custom_motd.stat.exists
 
-- name: Copy over custom MOTD
-  become: true
+- name: MOTD | Remove motd
+  ansible.builtin.file:
+    path: /etc/motd
+    state: absent
+
+- name: MOTD | Copy over custom MOTD
   ansible.builtin.copy:
     src: 10-custom
     dest: /etc/update-motd.d/
     owner: root
     group: root
     mode: '0755'
-  when: not custom_motd.stat.exists
+
+- name: MOTD | Add upgradable cron entry
+  ansible.builtin.cron:
+    name: "check dirs"
+    special_time: hourly
+    job: 'echo "Updates available: $(apt list --upgradable 2>/dev/null | grep -c upgradable)" > /tmp/updates'

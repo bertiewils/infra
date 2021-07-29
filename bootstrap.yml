@@ -1,14 +1,17 @@
 ---
 - name: Bootstrap server for future ansible runs
   hosts: ungrouped
-  remote_user: "{{ user }}"
+  gather_facts: true
+  remote_user: "{{ user | default(ansible_username) }}"
   vars:
     ansible_ssh_pipelining: false
+  vars_files:
+    - vars/all.yml
+    - vars/vault.yml
 
   tasks:
-    - name: Set up users
-      import_role:
-        name: setupusers
+    - import_role:
+        name: bootstrap
 
     - name: Remove requiretty to allow pipelining
       become: true
@@ -19,7 +22,3 @@
         dest: /etc/sudoers
         state: absent
         validate: /usr/sbin/visudo -cf %s
-
-    - name: Add custom MOTD
-      import_role:
-        name: motd

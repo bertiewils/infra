@@ -1,0 +1,14 @@
+---
+# General settings
+ansible_python_interpreter: /usr/bin/python3
+
+# bootstrap
+useful_programs:
+  - figlet
+  - nano
+  - python3
+  - sudo
+
+vm_specific_programs:
+  - haveged
+  - qemu-guest-agent

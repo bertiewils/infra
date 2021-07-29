@@ -1,16 +1,40 @@
 ---
-- name: Remove root SSH access
+- name: sshd | Remove root SSH access
   ansible.builtin.lineinfile:
     dest: /etc/ssh/sshd_config
     regexp: "^PermitRootLogin"
     line: "PermitRootLogin no"
     state: present
-    notify: restart sshd
+  notify: restart sshd
 
-- name: Remove password SSH access
+- name: sshd | Remove password SSH access
   ansible.builtin.lineinfile:
     dest: /etc/ssh/sshd_config
     regexp: "^PasswordAuthentication"
     line: "PasswordAuthentication no"
     state: present
-    notify: restart sshd
+  notify: restart sshd
+
+- name: sshd | Disable UseDNS
+  ansible.builtin.lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: "^UseDNS"
+    line: "UseDNS no"
+    state: present
+  notify: restart sshd
+
+- name: sshd | Disable GSSAPIAuthentication
+  ansible.builtin.lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: "^GSSAPIAuthentication"
+    line: "GSSAPIAuthentication no"
+    state: present
+  notify: restart sshd
+
+- name: sshd | Disable ipv6
+  ansible.builtin.lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: "^AddressFamily"
+    line: "AddressFamily inet"
+    state: present
+  notify: restart sshd

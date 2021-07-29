@@ -1,32 +1,30 @@
 ---
-- name: Install useful programs
+- name: Programs | Install useful programs
   apt:
     update_cache: true
     cache_valid_time: 3600
-    name:
-      - figlet
-      - nano
-      - sudo
+    name: "{{ item }}"
     state: present
+  with_items: "{{ useful_programs }}"
+  when: ansible_pkg_mgr == 'apt'
 
-- name: Install VM tools
+- name: Programs | Install VM tools
   apt:
     update_cache: true
     cache_valid_time: 3600
-    name:
-      - haveged
-      - qemu-guest-agent
+    name: "{{ item }}"
     state: present
-  when: ansible_virtualization_role = 'guest'
+  with_items: "{{ vm_specific_programs }}"
+  when: ansible_virtualization_role == 'guest'
 
-- name: Perform an apt upgrade
+- name: programs | Perform an apt upgrade
   apt:
     upgrade: safe
 
-- name: Clean up useless packages
+- name: Programs | Perfom an apt autoclean
   apt:
     autoclean: true
 
-- name: Clean up unused dependencies
+- name: Programs | Perform an apt autoremove
   apt:
     autoremove: true
