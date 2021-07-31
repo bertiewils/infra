@@ -22,6 +22,7 @@ provider "registry.terraform.io/hashicorp/aws" {
 provider "registry.terraform.io/hetznercloud/hcloud" {
   version = "1.27.2"
   hashes = [
+    "h1:dVF6enmonTn3FoL4pXmk6W/bdQEEWEemuGCih2nbSV8=",
     "h1:vIrSTDNmnHO/YHfqGWk20RU4C6Q9QpDYmffnEz+1jnk=",
     "zh:0294686d56f01d562a9ab654e7a6b2c29fdbad37e4fcdb8f8a220bfccf193de7",
     "zh:0a159d762616e94fac9dbe7d90c1b6892aa3ca494f48100e7b5c7dbd891cd5ee",

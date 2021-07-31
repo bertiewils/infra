@@ -6,7 +6,7 @@
 
 Proxmox CE
 
-Hetzner Cloud
+[Hetzner Cloud](https://hetzner.cloud/?ref=QAWf73zSnD2O)
 
 ### Software
 
@@ -18,10 +18,16 @@ Local DNS - Pihole
 
 ## Terraform
 
-See the [terraform/README.md](terraform/README.md) for more information.
+See the [terraform/README.md](terraform/README.md) for more information.
 
 
 ## Ansible
+
+Requirements:
+
+```
+pip install passlib  # for password_hash
+```
 
 Required collections:
 
