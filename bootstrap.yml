@@ -5,6 +5,7 @@
   remote_user: "{{ user | default(ansible_username) }}"
   vars:
     ansible_ssh_pipelining: false
+    ansible_python_interpreter: /usr/bin/python
   vars_files:
     - vars/all.yml
     - vars/vault.yml

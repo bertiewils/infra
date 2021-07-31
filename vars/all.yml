@@ -4,10 +4,19 @@ ansible_python_interpreter: /usr/bin/python3
 
 # bootstrap
 useful_programs:
+  - bash-completion
+  - curl
   - figlet
+  - git
+  - htop
+  - less
   - nano
+  - ncdu
+  - net-tools
   - python3
   - sudo
+  - tmux
+  - wget
 
 vm_specific_programs:
   - haveged

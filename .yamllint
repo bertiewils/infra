@@ -5,10 +5,11 @@ rules:
   document-start:
     ignore: |
       vault.yml
+
+  line-length:
+    max: 120
+    level: warning
+
   truthy:
     ignore: |
       .github/workflows/*
-  line-length:
-    ignore: |
-      .github/workflows/terraform-docs.yml
-      roles/bootstrap/tasks/motd.yml
