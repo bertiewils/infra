@@ -6,7 +6,7 @@
 
 Proxmox CE
 
-[Hetzner Cloud](https://hetzner.cloud/?ref=QAWf73zSnD2O)
+[Hetzner Cloud](https://hetzner.cloud/?ref=QAWf73zSnD2O) (Referral link, €20 free credit)
 
 ### Software
 
