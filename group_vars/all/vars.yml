@@ -2,6 +2,7 @@
 # General settings
 ansible_python_interpreter: /usr/bin/python3
 
+# vault_ variables are defined in vault.yml
 my_username: "{{ vault_my_username }}"
 my_groupname: "{{ my_username }}"
 my_gh_username: "{{ vault_my_gh_username }}"  # github
