@@ -21,8 +21,8 @@ jobs:
 
       - name: Install tfvar and generate example tfvars file
         run: |
-          curl -sL https://github.com/shihanng/tfvar/releases/latest/download/tfvar_linux_amd64.tar.gz | \
-          tar xz -C . tfvar
+          curl -sL https://github.com/shihanng/tfvar/releases/latest/download/tfvar_linux_amd64.tar.gz \
+            | tar xz -C . tfvar
           ./tfvar terraform/ > terraform/terraform.tfvars.example
           git add terraform/terraform.tfvars.example
 
