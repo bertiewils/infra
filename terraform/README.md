@@ -12,7 +12,7 @@
 
 | Name | Version |
 |------|---------|
-| hcloud | 1.27.2 |
+| hcloud | n/a |
 
 ### Resources
 
