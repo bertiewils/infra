@@ -1,0 +1,10 @@
+---
+# Add general and host specific aliases
+
+- name: Add .bash_aliases
+  ansible.builtin.template:
+    src: bash_aliases.j2
+    dest: /home/"{{ my_username }}"
+    # owner: root
+    # group: root
+    # mode: '0755'

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+{{ ansible_managed | comment }}
+
+# GENERAL
+
+{% for item in general_aliases %}
+alias {{ item }}
+{% endfor %}
+{#  #}
+{#  #}
+{% for group in group_names %}
+{% set var = hostvars[inventory_hostname][group ~ '_aliases'] %}
+
+{% if var is defined %}
+{{ group | upper | comment('plain', prefix='', postfix='') }}
+{% for alias in var %}
+alias {{ alias }}
+{% endfor %}
+{% endif %}
+{% endfor %}

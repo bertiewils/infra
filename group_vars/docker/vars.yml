@@ -1,0 +1,6 @@
+---
+# Docker-specific vars
+
+docker_aliases:
+  - d="docker"
+  - dc="docker-compose"

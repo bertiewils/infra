@@ -30,3 +30,6 @@ useful_programs:
 vm_specific_programs:
   - haveged
   - qemu-guest-agent
+
+general_aliases:
+  - g="git"
