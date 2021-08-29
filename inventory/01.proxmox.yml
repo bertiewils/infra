@@ -1,0 +1,21 @@
+---
+# Dynamic inventory to retrieve Proxmox VMs
+
+plugin: community.general.proxmox
+url: https://192.168.1.11:8006
+user: ansible@pve
+# password: export PROXMOX_PASSWORD=''
+validate_certs: false
+want_facts: true
+keyed_groups:
+  - key: proxmox_tags_parsed
+    separator: ""
+    prefix: group_
+groups:
+  db: "'database' in (proxmox_tags_parsed|list)"
+  dns: "'dns' in (proxmox_tags_parsed|list)"
+  docker: "'docker' in (proxmox_tags_parsed|list)"
+  mail: "'mail' in (proxmox_tags_parsed|list)"
+  shell: "'shell' in (proxmox_tags_parsed|list)"
+  webapp: "'webapp' in (proxmox_tags_parsed|list)"
+compose:

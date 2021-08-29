@@ -1,11 +1,5 @@
-[shell]
-192.168.1.53
-
-[docker]
-192.168.1.56
-
 [dns]
-192.168.1.13
+dns2 ansible_host=192.168.1.13
 
 [localhost]
 127.0.0.1 ansible_connection=local ansible_python_interpreter=/usr/bin/python

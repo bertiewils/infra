@@ -3,4 +3,5 @@
 
 collections:
   - name: ansible.posix  # for authorized_key
+  - name: community.general  # Proxmox inventory
   - name: devsec.hardening
