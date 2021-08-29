@@ -2,14 +2,14 @@
 name: Generate terraform docs
 
 on:
-  push:
-    paths:
-      - "terraform/**.tf"
-      - .github/workflows/terraform-docs.yml
-  pull_request:
-    paths:
-      - "terraform/**.tf"
-      - .github/workflows/terraform-docs.yml
+  # push:
+  #   paths:
+  #     - "terraform/**.tf"
+  #     - .github/workflows/terraform-docs.yml
+  # pull_request:
+  #   paths:
+  #     - "terraform/**.tf"
+  #     - .github/workflows/terraform-docs.yml
 
 jobs:
   docs:
