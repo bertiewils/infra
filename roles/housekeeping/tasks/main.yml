@@ -1,0 +1,7 @@
+---
+# Tasks for system maintenance
+
+- include: docker.yml
+  when: docker in group_names
+  become: true
+  tags: users

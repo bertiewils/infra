@@ -1,0 +1,9 @@
+---
+# Housekeeping rules for docker hosts
+
+- name: Housekeeping | docker system prune cron
+  ansible.builtin.cron:
+    name: "Housekeeping | prune unused data"
+    special_time: weekly
+    job: 'docker system prune --all --force'
+    state: present
