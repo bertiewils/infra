@@ -3,11 +3,6 @@
   become: true
   tags: users
 
-- include: sshd.yml
-  become: true
-  when: ansible_pub_key.failed is not true
-  tags: sshd
-
 - include: programs.yml
   become: true
   tags: programs
