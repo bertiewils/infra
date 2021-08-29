@@ -9,8 +9,6 @@ terraform {
   required_version = ">= 0.14.9"
 }
 
-variable "hcloud_token" {}
-
 provider "hcloud" {
   token = var.hcloud_token
 }
