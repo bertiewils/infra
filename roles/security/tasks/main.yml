@@ -1,0 +1,5 @@
+---
+
+- include: sshd.yml
+  become: true
+  tags: sshd
