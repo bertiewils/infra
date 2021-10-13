@@ -27,7 +27,7 @@ jobs:
           git add terraform/terraform.tfvars.example
 
       - name: Render terraform docs and push changes back to PR
-        uses: terraform-docs/gh-actions@v0.8.0
+        uses: terraform-docs/gh-actions@v0.11.0
         with:
           working-dir: terraform/
           output-file: README.md
