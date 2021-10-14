@@ -9,6 +9,8 @@ rules:
   line-length:
     max: 120
     level: warning
+    ignore: |
+      .github/workflows/dependabot.yml
 
   truthy:
     ignore: |
