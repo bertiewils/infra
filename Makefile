@@ -5,7 +5,7 @@
 
 SHELL := /bin/bash
 .POSIX:
-.PHONY: help decrypt encrypt
+.PHONY: help decrypt encrypt requirements
 
 # Credit to https://victoria.dev/blog/how-to-create-a-self-documenting-makefile
 help: ## Show this help
@@ -19,3 +19,7 @@ decrypt: ## Decrypt all vaults
 
 encrypt: ## Encrypt all vaults
 	ansible-vault encrypt group_vars/all/vault.yml
+
+requirements:  ## Install requirements
+	pip install passlib  # for password_hash
+	ansible-galaxy install -r requirements.yml
