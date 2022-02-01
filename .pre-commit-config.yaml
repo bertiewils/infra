@@ -4,7 +4,7 @@
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.2.0
+    rev: v4.1.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -18,7 +18,7 @@ repos:
   #       files: \.(yaml|yml)$
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.26.1
+    rev: v1.26.3
     hooks:
       - id: yamllint
       # args: [-c=/path/to/.yamllint]
