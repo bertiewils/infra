@@ -3,6 +3,7 @@
 
 ### Ansible ###
 *.retry
+galaxy_roles
 
 ### Linux ###
 *~
