@@ -1,10 +1,16 @@
 ---
 # Add general and host specific aliases
 
-- name: Add .bash_aliases
+- name: Add .aliases file
   ansible.builtin.template:
-    src: bash_aliases.j2
-    dest: /home/"{{ my_username }}"
-    # owner: root
-    # group: root
-    # mode: '0755'
+    src: aliases.j2
+    dest: /home/"{{ my_username }}"/.aliases
+    owner: "{{ my_username }}"
+    group: "{{ my_username }}"
+    mode: '0644'
+
+- name: Add bashrc include
+  ansible.builtin.lineinfile:
+    path: /home/"{{ my_username }}"/.bashrc
+    line: '[ -f ~/.aliases ] && source ~/.aliases'
+    create: true
