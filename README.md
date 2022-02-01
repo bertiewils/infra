@@ -23,20 +23,14 @@ See the [terraform/README.md](terraform/README.md) for more information.
 
 ## Ansible
 
-Requirements:
+See the [Makefile](Makefile) for details. Install with:
 
 ```
-pip install passlib  # for password_hash
-```
-
-Required collections:
-
-```bash
-ansible-galaxy install -r requirements.yml
+make requirements
 ```
 
 ### Bootstrap
 
 ```bash
-ansible-playbook bootstrap.yml -k -K --extra-vars "user=root"
+ansible-playbook bootstrap.yml -k -K --extra-vars "user=root" --limit ungrouped
 ```
