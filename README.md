@@ -26,7 +26,7 @@ See the [terraform/README.md](terraform/README.md) for more information.
 See the [Makefile](Makefile) for details. Install with:
 
 ```
-make requirements
+./helper.sh reqs
 ```
 
 ### Bootstrap
