@@ -7,9 +7,9 @@
 function help () { # Show this help
 	echo "Options:"
   grep "^function" "$0" \
-  | awk '{out=$2; for(i=5;i<=NF;i++){out=out" "$i}; print out}' \
-  | sort \
-  | awk 'BEGIN {FS = " # "}; {printf "\033[36m%-20s\033[0m %s\n", $1, $2}'
+    | awk '{out=$2; for(i=5;i<=NF;i++){out=out" "$i}; print out}' \
+    | sort \
+    | awk 'BEGIN {FS = " # "}; {printf "\033[36m%-20s\033[0m %s\n", $1, $2}'
 }
 
 function creds () { # Ready the credentials vault
@@ -31,7 +31,7 @@ function encrypt () { # Encrypt all vaults
 }
 
 function reqs () { # Install requirements
-  # add checks for terraform and ansible
+  # TODO: add checks for terraform and ansible
   pip install passlib  # for password_hash
 	ansible-galaxy install -r requirements.yml
 }
