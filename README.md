@@ -23,7 +23,7 @@ See the [terraform/README.md](terraform/README.md) for more information.
 
 ## Ansible
 
-See the [Makefile](Makefile) for details. Install with:
+Install the requirements with:
 
 ```
 ./helper.sh reqs
