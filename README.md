@@ -2,19 +2,7 @@
 
 ## Overview
 
-### Hardware
-
-Proxmox CE
-
-[Hetzner Cloud](https://hetzner.cloud/?ref=QAWf73zSnD2O) (Referral link, €20 free credit)
-
-### Software
-
-DNS:
-
-Cloudflare - https://github.com/StackExchange/dnscontrol
-
-Local DNS - Pihole
+My homelab IaC efforts.
 
 ## Terraform
 
@@ -26,7 +14,7 @@ See the [terraform/README.md](terraform/README.md) for more information.
 Install the requirements with:
 
 ```
-./helper.sh reqs
+make requirements
 ```
 
 ### Bootstrap
