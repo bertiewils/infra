@@ -30,13 +30,8 @@ if command -v free > /dev/null 2>&1; then
 fi
 
 # Print updates
-# if command -v apt-get > /dev/null 2>&1; then
-#         echo "Updates available: $(apt list --upgradable 2>/dev/null | grep -c upgradable)"
-# fi
+[ -f /tmp/updates ] && cat /tmp/updates
 
-# Print updates
-if [ -f /tmp/updates ]; then
-    cat /tmp/updates
-fi
+[ -f /var/run/reboot-required ] && cat /var/run/reboot-required
 
 echo

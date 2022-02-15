@@ -1,5 +1,18 @@
 ---
-- name: Users | Create the "{{ my_username }}" user
+- name: Users | Check /etc/sudoers exists
+  ansible.builtin.stat:
+    path: /etc/sudoers
+  register: sudoers_file
+
+- name: Users | Install sudo if missing
+  apt:
+    update_cache: true
+    cache_valid_time: 3600
+    name: sudo
+    state: present
+  when: not sudoers_file.stat.exists
+
+- name: Users | Create the {{ my_username }} user
   ansible.builtin.user:
     name: "{{ my_username }}"
     state: present
@@ -8,8 +21,8 @@
     groups: sudo
     shell: /bin/bash
     system: false
-    createhome: true
-    skeleton: true
+    create_home: true
+    skeleton: "/etc/skel"
 
 - name: Users | Add {{ my_username }}'s public key(s)
   ansible.posix.authorized_key:

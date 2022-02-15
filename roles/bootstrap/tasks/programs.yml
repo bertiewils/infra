@@ -17,11 +17,11 @@
   with_items: "{{ vm_specific_programs }}"
   when: ansible_virtualization_role == 'guest'
 
-- name: programs | Perform an apt upgrade
+- name: Programs | Perform an apt upgrade
   apt:
     upgrade: safe
 
-- name: Programs | Perfom an apt autoclean
+- name: Programs | Perform an apt autoclean
   apt:
     autoclean: true
 
