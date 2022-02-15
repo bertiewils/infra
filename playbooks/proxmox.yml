@@ -1,0 +1,10 @@
+---
+- name: Proxmox specific settings
+  hosts: proxmox_nodes
+  become: true
+
+
+  tasks:
+    - name: Remove subscription nag
+      include_role:
+        name: ironicbadger.ansible_role_proxmox_nag_removal
