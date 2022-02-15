@@ -6,6 +6,8 @@ collections:
   - name: community.general  # Proxmox inventory
   # - name: devsec.hardening
   - name: amazon.aws  # for AWS inventory
+  - name: oracle.oci  # For OCI inventory
 
 roles:
+  - name: geerlingguy.security
   - name: ironicbadger.ansible_role_proxmox_nag_removal

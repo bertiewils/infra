@@ -33,3 +33,11 @@ vm_specific_programs:
 
 general_aliases:
   - g="git"
+
+# geerlingguy.security
+security_ssh_allowed_users:
+  - "{{ my_username }}"
+  - "{{ ansible_username }}"
+
+security_sudoers_passwordless:
+  - "{{ ansible_username }}"
