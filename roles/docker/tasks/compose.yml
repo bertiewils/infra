@@ -1,0 +1,33 @@
+---
+
+- name: Compose | Get latest compose version
+  community.general.github_release:
+    user: docker
+    repo: compose
+    action: latest_release
+  delegate_to: localhost
+  become: false
+  register: latest_compose
+  when: compose_version == "latest"
+
+- name: Compose | Print latest compose version
+  ansible.builtin.debug:
+    var: latest_compose.tag
+  when: compose_version == "latest"
+
+- name: Compose | Set compose_version
+  ansible.builtin.set_fact:
+    compose_version: "{{ latest_compose.tag }}"
+  when: compose_version == "latest"
+
+- name: Compose | Install docker-compose
+  ansible.builtin.get_url:
+    url: "https://github.com/docker/compose/releases/download/{{ compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
+    dest: /usr/local/bin/docker-compose
+    mode: 'u+x,g+x'
+
+- name: Compose | Set compose permissions
+  ansible.builtin.file:
+    path: /usr/local/bin/docker-compose
+    owner: "{{ my_username }}"
+    group: "{{ my_username }}"
