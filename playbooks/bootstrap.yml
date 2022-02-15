@@ -1,14 +1,16 @@
 ---
 - name: Bootstrap server for future ansible runs
-  hosts: ungrouped
+  hosts: all
   gather_facts: true
   remote_user: "{{ user | default(ansible_username) }}"
   vars:
+    # Overide below vars specifically for this playbook
     ansible_ssh_pipelining: false
     ansible_python_interpreter: /usr/bin/python
 
   tasks:
-    - import_role:
+    - name: Run bootstrap role
+      import_role:
         name: bootstrap
 
     - name: Remove requiretty to allow pipelining
