@@ -2,14 +2,14 @@
 name: Generate terraform docs
 
 on:
-  # push:
-  #   paths:
-  #     - "terraform/**.tf"
-  #     - .github/workflows/terraform-docs.yml
-  # pull_request:
-  #   paths:
-  #     - "terraform/**.tf"
-  #     - .github/workflows/terraform-docs.yml
+  push:
+    paths:
+      - "terraform/**.tf"
+      - .github/workflows/terraform-docs.yml
+  pull_request:
+    paths:
+      - "terraform/**.tf"
+      - .github/workflows/terraform-docs.yml
 
 jobs:
   docs:
@@ -23,13 +23,15 @@ jobs:
         run: |
           curl -sL https://github.com/shihanng/tfvar/releases/latest/download/tfvar_linux_amd64.tar.gz \
             | tar xz -C . tfvar
-          ./tfvar terraform/ > terraform/terraform.tfvars.example
-          git add terraform/terraform.tfvars.example
+          ./tfvar terraform/aws > terraform/aws/terraform.tfvars.example
+          ./tfvar terraform/oci > terraform/oci/terraform.tfvars.example
+          ./tfvar terraform/proxmox > terraform/proxmox/terraform.tfvars.example
+          git add terraform/
 
       - name: Render terraform docs and push changes back to PR
         uses: terraform-docs/gh-actions@v0.11.0
         with:
-          working-dir: terraform/
+          working-dir: terraform/aws,terraform/oci,terraform/proxmox
           output-file: README.md
           config-file: .terraform-docs.yml
           git-push: "true"
