@@ -1,6 +1,6 @@
-cloudinit_template = "debian11-ci-template"
-pm_api_url         = "https://localhost:8006/api2/json"
-pm_pass            = "password123"
-pm_user            = "root@pam"
-ssh_key            = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7BwsqlmVrikZwb/22x2Q8ZDVLHllSEygzlaV8l+Hjbh+x3mApXbffF/lYCuuYuzG8biaYJAsTSiXtWKjFNVHJCGHgnYoQlc36iQO7SCn+thJgF/o3Ot31/mlEe6uZf/yJ1eOWSDzrbQ1ApsR1uErCvyRvQGdrNpEoJBgM/NZeTf7uUV3FwxmRkCM42lLswrP+8jNSsLNdPiKg8ElDdsM7tTcMSeI9MwWa1C6hAMRtYw+sPOoAk8lyijgsMTZ5z5s3kbL18uUv+E+q+vxsaAu/QGT5DngbcPdE661Fo2UyFET/QMIMZCyCb+0D65mcm/s6z9qfs0udHj703Ec+xf73 ansible-key"
-target_node        = "proxmox1"
+cloudinit_template = null
+pm_api_url         = null
+pm_pass            = null
+pm_user            = null
+ssh_key            = null
+target_node        = null

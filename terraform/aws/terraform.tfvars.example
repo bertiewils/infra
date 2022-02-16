@@ -1,8 +1,8 @@
-aws_region         = "eu-west-2"
-ec2_enable         = true
-ec2_ssh_key_name   = "ansible-key"
-ec2_ssh_key_public = "../../files/id_rsa.ansible.pub"
-profile            = "terraform"
-rds_enable         = true
-rds_password       = "password123"
-rds_user           = "changeme"
+aws_region         = null
+ec2_enable         = null
+ec2_ssh_key_name   = null
+ec2_ssh_key_public = null
+profile            = null
+rds_enable         = null
+rds_password       = null
+rds_user           = null

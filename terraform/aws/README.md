@@ -12,7 +12,7 @@
 
 | Name | Version |
 |------|---------|
-| aws | 3.53.0 |
+| aws | 4.1.0 |
 
 ### Resources
 
