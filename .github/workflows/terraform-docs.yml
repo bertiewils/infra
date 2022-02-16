@@ -23,9 +23,9 @@ jobs:
         run: |
           curl -sL https://github.com/shihanng/tfvar/releases/latest/download/tfvar_linux_amd64.tar.gz \
             | tar xz -C . tfvar
-          ./tfvar terraform/aws > terraform/aws/terraform.tfvars.example
-          ./tfvar terraform/oci > terraform/oci/terraform.tfvars.example
-          ./tfvar terraform/proxmox > terraform/proxmox/terraform.tfvars.example
+          for dir in aws oci proxmox; do
+            ./tfvar terraform/$dir --ignore-default > terraform/$dir/terraform.tfvars.example
+          done
           git add terraform/
 
       - name: Render terraform docs and push changes back to PR
