@@ -29,7 +29,7 @@ jobs:
           git add terraform/
 
       - name: Render terraform docs and push changes back to PR
-        uses: terraform-docs/gh-actions@v0.11.0
+        uses: terraform-docs/gh-actions@v1.0.0
         with:
           working-dir: terraform/aws,terraform/oci,terraform/proxmox
           output-file: README.md
