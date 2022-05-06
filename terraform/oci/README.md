@@ -1,7 +1,6 @@
 # infra/terraform/oci
 
 <!-- BEGIN_TF_DOCS -->
-
 ### Requirements
 
 | Name | Version |
@@ -14,8 +13,8 @@
 | Name | Version |
 |------|---------|
 | http | 2.1.0 |
-| oci | 4.63.0 |
-| oci.oci | 4.63.0 |
+| oci | 4.74.0 |
+| oci.oci | 4.74.0 |
 
 ### Resources
 
@@ -51,5 +50,4 @@
 | ssh\_public\_key | SSH Public Key String | n/a | yes |
 | tenancy\_ocid | User Tenancy OCID | n/a | yes |
 | user\_ocid | User OCID | n/a | yes |
-
 <!-- END_TF_DOCS -->

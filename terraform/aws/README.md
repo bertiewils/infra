@@ -1,7 +1,6 @@
 # infra/terraform/aws
 
 <!-- BEGIN_TF_DOCS -->
-
 ### Requirements
 
 | Name | Version |
@@ -12,7 +11,7 @@
 
 | Name | Version |
 |------|---------|
-| aws | 4.1.0 |
+| aws | 4.13.0 |
 
 ### Resources
 
@@ -33,5 +32,4 @@
 | rds\_enable | Enable RDS | `true` | no |
 | rds\_password | Region for the RDS database | `"password123"` | no |
 | rds\_user | Region for AWS resources | `"changeme"` | no |
-
 <!-- END_TF_DOCS -->
