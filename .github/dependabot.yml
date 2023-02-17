@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - package-ecosystem: terraform
+    directory: terraform/aws
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: terraform/hetzner.old
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: terraform/oci
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: terraform/proxmox
+    schedule:
+      interval: daily
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
