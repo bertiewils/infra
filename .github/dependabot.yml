@@ -7,10 +7,17 @@ version: 2
 updates:
 
   - package-ecosystem: "terraform"
-    # Searches the entire tree, but only matches files with the given name
-    # This actually outputs without a leading slash, but dependabot doesn't seem to care
-    # Note the . is escaped, node-glob doesn't search hidden files by default
-    directory: '\.terraform.lock.hcl'
+    directory: "/terraform/aws"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "terraform"
+    directory: "/terraform/oci"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "terraform"
+    directory: "/terraform/proxmox"
     schedule:
       interval: "daily"
 
