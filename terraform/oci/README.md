@@ -13,8 +13,8 @@
 | Name | Version |
 |------|---------|
 | http | 2.1.0 |
-| oci | 4.74.0 |
-| oci.oci | 4.74.0 |
+| oci | 5.46.0 |
+| oci.oci | 5.46.0 |
 
 ### Resources
 
