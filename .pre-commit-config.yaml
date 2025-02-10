@@ -18,7 +18,7 @@ repos:
   #       files: \.(yaml|yml)$
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.26.3
+    rev: v1.35.1
     hooks:
       - id: yamllint
       # args: [-c=/path/to/.yamllint]
