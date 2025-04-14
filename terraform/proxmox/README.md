@@ -11,7 +11,7 @@
 
 | Name | Version |
 |------|---------|
-| proxmox | 2.9.5 |
+| proxmox | 2.9.14 |
 
 ### Resources
 

@@ -11,7 +11,7 @@
 
 | Name | Version |
 |------|---------|
-| aws | 5.53.0 |
+| aws | 5.81.0 |
 
 ### Resources
 
