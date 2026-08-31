@@ -24,6 +24,6 @@ repos:
       # args: [-c=/path/to/.yamllint]
 
   - repo: https://github.com/me-vlad/ansible-pre-commit
-    rev: v0.1.3
+    rev: v0.1.4
     hooks:
       - id: encryption-check
